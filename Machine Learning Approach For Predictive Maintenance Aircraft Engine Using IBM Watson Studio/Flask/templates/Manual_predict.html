@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>
+	Prediction
+</title>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<style>
+		* {
+			box-sizing: border-box;
+		}
+		
+		body {
+			font-family: 'Montserrat' ;
+		}
+		
+		.header {	
+			top:0;	
+			margin:0px;
+			left: 0px;
+			right: 0px;
+			position: fixed;
+			background-color: black;
+			color: white;
+			box-shadow: 0px 8px 4px grey;
+			overflow: hidden;
+			padding: 15px;
+			font-size: 2vw;
+			width: 100%;
+			text-align: left;
+			padding-left: 100px;
+			opacity:0.9;
+		}
+		.header_text{
+			font-size:40px;
+			text-align:center;
+		}
+		.content{
+		margin-top:100px;
+		}
+		.text{
+			font-size:20px;
+			margin-top:10px;
+			text-align:center;
+		}
+		input[type=number], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #000000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #5d6568;
+  color:#ffffff;	
+  border-color:black;
+}
+form{
+margin-top:20px;
+}
+.result{
+color:black;
+margin-top:30px;
+margin-bottom:20px;
+font-size:50px;
+color:red;
+}
+</style>	
+</head>
+<body align=center>
+<div class="header">
+		<div>NILA</div>
+</div>
+<div class="content">
+<div class="header_text">Engine Failure Prediction using Manual Data</div>
+<div class="text">Fill in and below details to know whether the engine fails with in 30 days</div>
+<div class="result">
+  {{ prediction_text }}
+  </div>
+<form action="{{ url_for('y_predict') }}" method="POST">
+    <input type="number" id="_id" name="_id" placeholder="ID">
+    <input type="number" id="cycles_per_minute" name="cpm" placeholder="Number of cycles per minute">
+	<input type="number" id="set1" name="set1" placeholder="Settings 1">
+	<input type="number" id="set2" name="set2" placeholder="Settings 2">
+    <input type="number" id="set3" name="set3" placeholder="Settings 3">
+	<input type="number" id="sen1" name="sen1" placeholder="Sensor 1">
+    <input type="number" id="sen2" name="sen2" placeholder="Sensor 2">
+    <input type="number" id="sen3" name="sen3" placeholder="Sensor 3">
+	<input type="number" id="sen4" name="sen4" placeholder="Sensor 4">
+    <input type="number" id="sen5" name="sen5" placeholder="Sensor 5">
+    <input type="number" id="sen6" name="sen6" placeholder="Sensor 6">
+	<input type="number" id="sen7" name="sen7" placeholder="Sensor 7">
+    <input type="number" id="sen8" name="sen8" placeholder="Sensor 8">
+    <input type="number" id="sen9" name="sen9" placeholder="Sensor 9">
+	<input type="number" id="sen10" name="sen10" placeholder="Sensor 10">
+    <input type="number" id="sen11" name="set11" placeholder="Sensor 11">
+    <input type="number" id="sen12" name="set12" placeholder="Sensor 12">
+	<input type="number" id="sen13" name="set13" placeholder="Sensor 13">
+    <input type="number" id="sen14" name="set14" placeholder="Sensor 14">
+    <input type="number" id="sen15" name="set15" placeholder="Sensor 15">
+	<input type="number" id="sen16" name="set16" placeholder="Sensor 16">
+    <input type="number" id="sen17" name="set17" placeholder="Sensor 17">
+    <input type="number" id="sen18" name="set18" placeholder="Sensor 18">
+	<input type="number" id="sen19" name="set19" placeholder="Sensor 19">
+    <input type="number" id="sen20" name="set20" placeholder="Sensor 20">
+    <input type="number" id="sen21" name="set21" placeholder="Sensor 21">
+	<input type="number" id="trajectory" name="tracjectory" placeholder="Trajectory">
+    
+    
+    <input type="submit" value="Submit">
+  </form>
+  
+</div>
+</body>
+</html>

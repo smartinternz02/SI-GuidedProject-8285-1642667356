@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>
+	Prediction
+</title>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<style>
+		* {
+			box-sizing: border-box;
+		}
+		
+		body {
+			font-family: 'Montserrat' ;
+		}
+		.header_text{
+		font-size:40px;
+		}
+	
+		.header {	
+			top:0;	
+			margin:0px;
+			left: 0px;
+			right: 0px;
+			position: fixed;
+			background-color: black;
+			color: white;
+			box-shadow: 0px 8px 4px grey;
+			overflow: hidden;
+			padding: 15px;
+			font-size: 2vw;
+			width: 100%;
+			text-align: left;
+			padding-left: 100px;
+			opacity:0.9;
+		}
+		
+		.content{
+		margin-top:100px;
+		}
+		.text{
+			font-size:20px;
+			margin-top:30px;
+			margin-bottom:30px;
+			text-align:center;
+			padding-left:250px;
+			padding-right:250px;
+		}
+		.data{
+		margin-left:250px;
+		margin-right:250px;
+		text-align:justify;
+		}
+		input[type=number], select {
+		  width: 50%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+
+		input[type=submit] {
+		  width: 50%;
+		  background-color: #000000;
+		  color: white;
+		  padding: 14px 20px;
+		  margin: 8px 0;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+		  background-color: #5d6568;
+		  color:#ffffff;	
+		  border-color:black;
+		}
+		form{
+		margin-top:20px;
+		}
+		.result{
+		color:black;
+		margin-top:30px;
+		margin-bottom:20px;
+		font-size:50px;
+		color:red;
+		}
+
+</style>	
+</head>
+<body align=center>
+
+<div class="header">
+<div>NILA</div>
+	
+</div>
+
+<div class="content">
+<div class="header_text">Engine Failure Prediction using Sensor Data</div>
+<div class="text">Data obtained from 21 different sensors along with 3 setting values, an engine id, number of cycles per minute and the trajectory are given to the model.</div>
+
+<form action="{{ url_for('sy_predict') }}" method="POST">
+     <input type="submit" value="Submit">
+  </form>
+  <div class="data">
+  <p style="text-align:center"><b>Sensor data given to the model in the order {Engine Id, Number of cycles per minute, 3 setting values, 21 sensor values and trajectory} are</b></p>
+  {{ data }}
+  </div>
+  <div class="result">
+  {{ prediction_text }}
+  </div>
+  
+</div>
+</body>
+</html>
